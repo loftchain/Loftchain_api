@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Transactions;
 
+use App\Services\Transactions\EthService;
 use GuzzleHttp\Client;
 Use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
@@ -10,17 +11,17 @@ use App\Http\Controllers\Controller;
 class EthController extends Controller
 {
 
-  public function __construct()
-  {
+  protected $ethService;
 
+  public function __construct(EthService $ethService)
+  {
+    $this->ethService = $ethService;
   }
 
-  public function getTransactions($sc){
-    $client = new Client();
-    $res = $client->request('GET', 'http://api.etherscan.io/api?module=account&action=txlist&address='. $sc .'&sort=asc&apikey='.env('ETHERSCAN_API_KEY'));
-    return $res;
+  public function getEthTransactions($eth_smartcontract){
 
-    //TODO: Перенести это в сервис. Огранизовать запись в базу.
+    return $this->ethService->getTx($eth_smartcontract);
+
   }
 
 }

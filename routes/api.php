@@ -17,5 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/gettransactions/eth/{sc}', 'Transactions\EthController@getTransactions')->name('getTransactions');
+Route::get('/eth/{sc}', 'Transactions\EthController@getEthTransactions');
+Route::get('/btc/{btc_wallet}', 'Transactions\BtcController@getBtcTransactions');
+Route::get('/store_btc/{btc_wallet}', 'Transactions\BtcController@storeTxtoDB');
 
