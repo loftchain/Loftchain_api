@@ -12,5 +12,6 @@ class Cur extends Model
     'id',
     'pair',
     'price',
+    'timestamp',
   ];
 }

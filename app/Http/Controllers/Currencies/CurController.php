@@ -20,7 +20,7 @@ class CurController extends Controller
 
   public function getCurrencies(){
 
-    return $this->curService->cur_get();
+    return $this->curService->cur_getCurFromDb();
 
   }
 

@@ -17,6 +17,7 @@ class CreateCurrenciesTable extends Migration
       $table->increments('id');
       $table->string('pair')->nullable();
       $table->string('price')->nullable();
+      $table->string('timestamp')->nullable();
       $table->timestamps();
     });
   }
