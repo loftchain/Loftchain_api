@@ -17,7 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/eth/{sc}', 'Transactions\EthController@getEthTransactions');
+Route::get('/eth', 'Transactions\EthController@getEthTransactions');
 Route::get('/btc', 'Transactions\BtcController@getBtcTransactions');
 Route::get('/store_btc/{btc_wallet}', 'Transactions\BtcController@storeTxtoDB');
+Route::get('/store_eth', 'Transactions\EthController@storeTxtoDB');
+Route::get('/currencies', 'Currencies\CurController@getCurrencies');
+Route::get('/cur', 'Currencies\CurController@getCur');
 

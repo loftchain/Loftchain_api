@@ -3,9 +3,7 @@
 namespace App\Services\Transactions;
 
 use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Log;
 use App\Models\Btc;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 
 class BtcService

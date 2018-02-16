@@ -18,9 +18,14 @@ class EthController extends Controller
     $this->ethService = $ethService;
   }
 
-  public function getEthTransactions($eth_smartcontract){
+  public function getEthTransactions(){
 
-    return $this->ethService->getTx($eth_smartcontract);
+    return $this->ethService->eth_getTxFromDb();
+
+  }
+  public function storeTxtoDB(){
+
+    return $this->ethService->eth_recompileAndStoreTx();
 
   }
 
