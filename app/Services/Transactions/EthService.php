@@ -6,8 +6,6 @@ use GuzzleHttp\Client;
 use App\Models\Eth;
 use Illuminate\Support\Facades\DB;
 
-
-
 class EthService
 {
 
