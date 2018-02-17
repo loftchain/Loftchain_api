@@ -21,9 +21,9 @@ class BtcController extends Controller
     return $this->btcService->btc_getTxFromDb();
 
   }
-  public function storeTxtoDB($btc_wallet){
+  public function storeTxtoDB(){
 
-    return $this->btcService->btc_recompileAndStoreTx($btc_wallet);
+    return $this->btcService->btc_recompileAndStoreTx();
 
   }
 
