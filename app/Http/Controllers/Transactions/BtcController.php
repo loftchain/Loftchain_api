@@ -16,14 +16,14 @@ class BtcController extends Controller
       $this->btcService = $btcService;
   }
 
-  public function getBtcTransactions(){
+  public function getBtcTransactions($btc_wallet){
 
-    return $this->btcService->btc_getTxFromDb();
+    return $this->btcService->btc_getTxFromDb($btc_wallet);
 
   }
-  public function storeTxtoDB(){
+  public function storeTxtoDB($btc_wallet){
 
-    return $this->btcService->btc_recompileAndStoreTx();
+    return $this->btcService->btc_recompileAndStoreTx($btc_wallet);
 
   }
 

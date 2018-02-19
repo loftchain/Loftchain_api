@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Cur extends Model
+class Customers extends Model
 {
-  protected $table = 'currencies';
+  protected $table = 'customers';
 
   protected $fillable = [
     'id',
-    'pair',
-    'price',
-    'timestamp',
+    'name',
+    'wallet_currency',
+    'wallet',
   ];
 }

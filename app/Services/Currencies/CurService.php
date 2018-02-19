@@ -3,7 +3,7 @@
 namespace App\Services\Currencies;
 
 use GuzzleHttp\Client;
-use App\Models\Cur;
+use App\Models\Currencies;
 use Illuminate\Support\Facades\DB;
 
 class CurService
@@ -39,7 +39,7 @@ class CurService
 			];
 		}
 	  for ($k = 0; $k < count($db); $k++) {
-			  Cur::create($db[$k]);
+			  Currencies::create($db[$k]);
 	  }
 	}
 
