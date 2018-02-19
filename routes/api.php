@@ -17,10 +17,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/eth', 'Transactions\EthController@getEthTransactions');
+Route::get('/eth/{eth_wallet}', 'Transactions\EthController@getEthTransactions');
+Route::get('/store_eth/{eth_wallet}', 'Transactions\EthController@storeTxtoDB');
 Route::get('/btc/{btc_wallet}', 'Transactions\BtcController@getBtcTransactions');
 Route::get('/store_btc/{btc_wallet}', 'Transactions\BtcController@storeTxtoDB');
-Route::get('/store_eth', 'Transactions\EthController@storeTxtoDB');
+
 Route::get('/currencies', 'Currencies\CurController@getCurrencies');
 Route::get('/cur', 'Currencies\CurController@getCur');
 Route::get('/sc', 'SmartContract\ScController@getTokenSupply');

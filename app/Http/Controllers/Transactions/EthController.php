@@ -18,14 +18,14 @@ class EthController extends Controller
     $this->ethService = $ethService;
   }
 
-  public function getEthTransactions(){
+  public function getEthTransactions($eth_wallet){
 
-    return $this->ethService->eth_getTxFromDb();
+    return $this->ethService->eth_getTxFromDb($eth_wallet);
 
   }
-  public function storeTxtoDB(){
+  public function storeTxtoDB($eth_wallet){
 
-    return $this->ethService->eth_recompileAndStoreTx();
+    return $this->ethService->eth_recompileAndStoreTx($eth_wallet);
 
   }
 

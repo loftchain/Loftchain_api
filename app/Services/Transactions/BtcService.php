@@ -14,7 +14,7 @@ class BtcService
 	protected function btc_numberOfInputTransactions($btc_wallet)
 	{
 		$client = new Client();
-		$res = $client->request('GET', 'https://chain.so/api/v2/address/BTC/' . $btc_wallet); //todo: Проверять время от времения правильное кол-во транзакций.
+		$res = $client->request('GET', 'https://chain.so/api/v2/address/BTC/' . $btc_wallet); //TODO: Проверять время от времения правильное кол-во транзакций.
 		$body = json_decode($res->getBody());
 		return $body->data->total_txs;
 	}
@@ -71,14 +71,16 @@ class BtcService
 	public function btc_getTxFromDb($btc_wallet)
 	{
 		$customer = Customers::where('wallet', $btc_wallet)->first();
+    $txs = Transactions::where('customer_id', $customer['customer_id'])->where('currency', 'BTC')->orderBy('date', 'desc')->get();
 
-		if (!$customer) {
-			return response()->json(['response' => 'customer with such wallet does not exist']);
+    if (!$customer) {
+			return response()->json(['response' => 'Customer with such wallet does not exist']);
 		}
 
-		$txs = DB::table('transactions')
-			->orderBy('id', 'desc')
-			->get();
+    if (!$txs) {
+      return response()->json(['response' => 'This address does not yet have any transactions']);
+    }
+
 		return $txs;
 
 	}
