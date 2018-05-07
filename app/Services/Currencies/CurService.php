@@ -15,9 +15,12 @@ class CurService
 		$client = new Client();
 		$res1 = $client->request('GET', 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=' . env('CURRENCIES') . '&tsyms=USD');
 		$res2 = $client->request('GET', 'https://min-api.cryptocompare.com/data/price?fsym=USD&tsyms=' . env('CURRENCIES'));
+		$res3 = $client->request('GET', 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=' . env('CURRENCIES') . '&tsyms=ETH');
+
 		$body1 = json_decode($res1->getBody());
 		$body2 = json_decode($res2->getBody());
-		return [$body1, $body2];
+		$body3 = json_decode($res3->getBody());
+		return [$body1, $body2, $body3];
 	}
 
 	public function cur_recompileAndStoreTx()
@@ -37,6 +40,15 @@ class CurService
 				'price' => $v,
 				'timestamp' => time()
 			];
+		}
+		foreach ($currencies[2] as $k => $v) {
+			if($k == 'BTC'){
+				$db[] = [
+					'pair' => $k . '/ETH',
+					'price' => $v['ETH'],
+					'timestamp' => time()
+				];
+			}
 		}
 	  for ($k = 0; $k < count($db); $k++) {
 			  Currencies::create($db[$k]);
