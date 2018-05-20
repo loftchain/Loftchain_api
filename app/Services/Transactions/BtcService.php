@@ -66,7 +66,6 @@ class BtcService
 				Transactions::create($db[$k]);
 			}
 		}
-		Log::info('BTC Stored');
 		return $db;
 	}
 

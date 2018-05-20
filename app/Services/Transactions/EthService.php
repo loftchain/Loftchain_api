@@ -52,7 +52,6 @@ class EthService
         Transactions::create($db[$k]);
       }
     }
-	  Log::info('ETH Stored');
 	  return $db;
   }
 
