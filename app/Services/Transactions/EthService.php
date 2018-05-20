@@ -6,6 +6,8 @@ use GuzzleHttp\Client;
 use App\Models\Transactions;
 use App\Models\Customers;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+
 
 class EthService
 {
@@ -50,8 +52,8 @@ class EthService
         Transactions::create($db[$k]);
       }
     }
-    return $db;
-    Log::info('ETH Stored');
+	  Log::info('ETH Stored');
+	  return $db;
   }
 
   public function eth_getTxFromDb($eth_wallet)

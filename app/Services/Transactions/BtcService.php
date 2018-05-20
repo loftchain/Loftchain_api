@@ -66,8 +66,8 @@ class BtcService
 				Transactions::create($db[$k]);
 			}
 		}
-		return $db;
 		Log::info('BTC Stored');
+		return $db;
 	}
 
 	public function btc_getTxFromDb($btc_wallet)
@@ -86,14 +86,4 @@ class BtcService
 		return $txs;
 
 	}
-
-	public function btc_cronProcess($btc_wallet)
-	{
-
-
-	}
-
-
 }
-
-//TODO: Крон

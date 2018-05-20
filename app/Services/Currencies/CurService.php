@@ -5,6 +5,7 @@ namespace App\Services\Currencies;
 use GuzzleHttp\Client;
 use App\Models\Currencies;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class CurService
 {
@@ -53,6 +54,7 @@ class CurService
 	  for ($k = 0; $k < count($db); $k++) {
 			  Currencies::create($db[$k]);
 	  }
+	  Log::info('Currencies stored');
 	}
 
 	public function cur_getCurFromDb()
