@@ -25,9 +25,7 @@ class CurController extends Controller
   }
 
   public function getCur(){
-
     return $this->curService->cur_recompileAndStoreTx();
-
   }
 
 }

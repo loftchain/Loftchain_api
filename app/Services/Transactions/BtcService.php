@@ -29,6 +29,7 @@ class BtcService
 
 	public function btc_recompileAndStoreTx($btc_wallet)
 	{
+
 		$db = [];
 		$tx_num = $this->btc_numberOfInputTransactions($btc_wallet);
 		$iterator = (int)ceil($tx_num / 25); // Сколько раз нужно собрать по 25 транзакций. Транзакции выдаются только по 25 штук, при текущем API.
@@ -66,6 +67,7 @@ class BtcService
 			}
 		}
 		return $db;
+		Log::info('BTC Stored');
 	}
 
 	public function btc_getTxFromDb($btc_wallet)

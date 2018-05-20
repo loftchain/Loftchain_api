@@ -51,6 +51,7 @@ class EthService
       }
     }
     return $db;
+    Log::info('ETH Stored');
   }
 
   public function eth_getTxFromDb($eth_wallet)

@@ -63,14 +63,4 @@ class CurService
 		return $cur;
 
 	}
-
-	public function btc_cronProcess($btc_wallet)
-	{
-
-
-	}
-
-
 }
-
-//TODO: Крон
