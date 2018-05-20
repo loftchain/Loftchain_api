@@ -16,7 +16,7 @@ class EthService
   public function eth_getTx($eth_wallet)
   {
     $client = new Client();
-    $res = $client->request('GET', 'https://api-rinkeby.etherscan.io/api?module=account&action=txlist&address=' . $eth_wallet . '&sort=asc&apikey=' . env('ETHERSCAN_API_KEY'));
+    $res = $client->request('GET', 'http://api.etherscan.io/api?module=account&action=txlist&address=' . $eth_wallet . '&sort=asc&apikey=' . env('ETHERSCAN_API_KEY'));
     $body = json_decode($res->getBody());
     return $body->result;
   }
