@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Customers;
 use App\Services\Transactions\EthService;
 use Illuminate\Console\Command;
 
@@ -41,6 +42,11 @@ class GrabEthTx extends Command
      */
     public function handle()
     {
-				$this->ethService->eth_recompileAndStoreTx(env('MAIN_ETH'));
+    	$customer = Customers::where('wallet_currency', 'ETH')->get();
+
+    	foreach ($customer as $c){
+		    $this->ethService->eth_recompileAndStoreTx($c->wallet);
+	    }
+
     }
 }

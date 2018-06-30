@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Services\Transactions\BtcService;
 use Illuminate\Console\Command;
+use App\Models\Customers;
 
 
 class GrabBtcTx extends Command
@@ -42,6 +43,10 @@ class GrabBtcTx extends Command
 	 */
 	public function handle()
 	{
-		$this->btcService->btc_recompileAndStoreTx(env('MAIN_BTC'));
+		$customer = Customers::where('wallet_currency', 'BTC')->get();
+
+		foreach ($customer as $c){
+			$this->btcService->btc_recompileAndStoreTx($c->wallet);
+		}
 	}
 }

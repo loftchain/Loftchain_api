@@ -23,17 +23,18 @@ class EthService
 
   public function eth_recompileAndStoreTx($eth_wallet)
   {
+
     $db = [];
     $_eth_divider = 1000000000000000000;
     $customer = Customers::where('wallet', $eth_wallet)->first();
 
     if (!$customer) {
-      return response()->json(['response' => 'customer with such wallet does not exist']);
+	    Log::info('ETH-service: customer with such wallet does not exist');
+	    return response()->json(['response' => 'customer with such wallet does not exist']);
     }
 
     $transactions = $this->eth_getTx($eth_wallet);
     for ($i = 0; $i < count($transactions); $i++) {
-      if ($transactions[$i]->value != '0') {
         $date = gmdate("Y-m-d H:i:s", $transactions[$i]->timeStamp);
         $db[] = [
           'txId' => $transactions[$i]->hash,
@@ -44,7 +45,6 @@ class EthService
           'date' => $date,
           'status' => $transactions[$i]->isError == 1 ? 'false' : 'true',
         ];
-      }
     }
 
     for ($k = 0; $k < count($db); $k++) {
@@ -53,6 +53,7 @@ class EthService
       }
     }
 	  return $db;
+
   }
 
   public function eth_getTxFromDb($eth_wallet)

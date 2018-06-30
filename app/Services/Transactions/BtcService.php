@@ -38,6 +38,7 @@ class BtcService
 		$customer = Customers::where('wallet', $btc_wallet)->first();
 
 		if (!$customer) {
+			Log::info('BTC-service: customer with such wallet does not exist');
 			return response()->json(['response' => 'customer with such wallet does not exist']);
 		}
 

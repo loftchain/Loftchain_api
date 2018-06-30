@@ -15,5 +15,4 @@ class TxService
   {
     return Transactions::where('customer_id', $customer_id)->get();
   }
-
 }
