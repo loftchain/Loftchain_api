@@ -14,9 +14,9 @@ class CurService
 	public function cur_get()
 	{
 		$client = new Client();
-		$res1 = $client->request('GET', 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=' . env('CURRENCIES') . '&tsyms=USD');
-		$res2 = $client->request('GET', 'https://min-api.cryptocompare.com/data/price?fsym=USD&tsyms=' . env('CURRENCIES'));
-		$res3 = $client->request('GET', 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=' . env('CURRENCIES') . '&tsyms=ETH');
+		$res1 = $client->request('GET', 'https://api.cryptonator.com/api/ticker/btc-usd');
+		$res2 = $client->request('GET', 'https://api.cryptonator.com/api/ticker/eth-usd');
+		$res3 = $client->request('GET', 'https://api.cryptonator.com/api/ticker/btc-eth');
 
 		$body1 = json_decode($res1->getBody());
 		$body2 = json_decode($res2->getBody());
@@ -28,28 +28,12 @@ class CurService
 	{
 		$db = [];
 		$currencies = json_decode(json_encode($this->cur_get()), true);
-		foreach ($currencies[0] as $k => $v) {
+		foreach ($currencies as $cur) {
 			$db[] = [
-				'pair' => $k . '/USD',
-				'price' => $v['USD'],
-				'timestamp' => time()
+				'pair' => $cur['ticker']['base']. '/' . $cur['ticker']['target'],
+				'price' => $cur['ticker']['price'],
+				'timestamp' => $cur['timestamp']
 			];
-		}
-		foreach ($currencies[1] as $k => $v) {
-			$db[] = [
-				'pair' => 'USD/' . $k,
-				'price' => $v,
-				'timestamp' => time()
-			];
-		}
-		foreach ($currencies[2] as $k => $v) {
-			if($k == 'BTC'){
-				$db[] = [
-					'pair' => $k . '/ETH',
-					'price' => $v['ETH'],
-					'timestamp' => time()
-				];
-			}
 		}
 	  for ($k = 0; $k < count($db); $k++) {
 			  Currencies::create($db[$k]);
