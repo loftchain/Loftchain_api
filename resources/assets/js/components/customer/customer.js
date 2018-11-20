@@ -1,24 +1,25 @@
 import axios from 'axios';
 
 export default {
-    name: 'currency',
+    name: 'customer',
     components: {},
     props: [],
     data() {
         return {
-            currencies: null,
+            customers: null,
             currentSort: 'date',
             currentSortDir: 'desc',
             pageSize: 10,
             currentPage: 1,
             totalPages: 1,
+            checkedCurrency: ['BTC', 'ETH'],
             isLoading: true,
         }
     },
     computed: {
         sortedItems: function () {
-            if (this.currencies !== null) {
-                return this.currencies.sort((a, b) => {
+            if (this.customers !== null) {
+                return this.customers.sort((a, b) => {
                     let modifier = 1;
                     if (this.currentSortDir === 'desc') modifier = -1;
                     if (a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
@@ -28,21 +29,23 @@ export default {
                     let start = (this.currentPage - 1) * this.pageSize;
                     let end = this.currentPage * this.pageSize;
                     if (index >= start && index < end) return true;
-                });
+                }).filter((i) =>
+                    this.checkedCurrency.includes(i.wallet_currency)
+                );
             }
         },
     },
     mounted() {
-        this.getCurrencies();
+        this.getCustomers();
     },
     methods: {
-        async getCurrencies() {
-            await axios.get('currencies/get')
+        async getCustomers(){
+            await axios.get('customer/get')
                 .then(res => {
                     this.isLoading = false;
                     const {data} = res;
                     this.totalPages = data.length;
-                    this.currencies = data;
+                    this.customers = data;
                 })
         },
 
@@ -54,11 +57,15 @@ export default {
         },
 
         nextPage: function () {
-            if ((this.currentPage * this.pageSize) < this.currencies.length) this.currentPage++;
+            if ((this.currentPage * this.pageSize) < this.customers.length) this.currentPage++;
         },
 
         prevPage: function () {
             if (this.currentPage > 1) this.currentPage--;
+        },
+
+        checkBoxClick: function () {
+            this.pageSize = this.totalPages;
         },
     }
 }

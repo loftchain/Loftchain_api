@@ -1,0 +1,53 @@
+
+<section class="customer">
+  <div class="helpBar">
+    <div class="helpBar__buttons">
+      <button @click="prevPage">Previous</button>
+      <button @click="nextPage">Next</button>
+    </div>
+    <div class="helpBar__help-text">
+      <p v-model="currentPage">current page: {{ currentPage }}</p>
+      <p v-model="totalPages">total transactions: {{ totalPages }}</p>
+    </div>
+    <div class="helpBar__page-select">
+      <label for="pageQuantity">Number of elements on the page</label>
+      <select v-model="pageSize" name="pageQuantity" id="pageQuantity">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option :value="totalPages">all, {{ totalPages }}</option>
+      </select>
+    </div>
+    <div class="helpBar__currency-checkboxes">
+      <ul>
+        <li>
+          <input type="checkbox" v-model="checkedCurrency" @click="checkBoxClick" value="ETH" checked/>  ETH
+        </li>
+        <li>
+          <input type="checkbox" v-model="checkedCurrency" @click="checkBoxClick" value="BTC" checked/>  BTC
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="tx-container">
+    <header>
+      <div class="tx-container__el id" @click="sort('id')">id</div>
+      <div class="tx-container__el customer_id" @click="sort('customer_id')">customer id</div>
+      <div class="tx-container__el wallet_currency" @click="sort('wallet_currency')">currency</div>
+      <div class="tx-container__el wallet" @click="sort('wallet')">wallet</div>
+      <div class="tx-container__el date" @click="sort('created_at')">date</div>
+    </header>
+    <main v-for="item in sortedItems" v-if="!isLoading">
+      <div class="tx-container__el id">{{ item.id }}</div>
+      <div class="tx-container__el customer_id">{{ item.customer_id }}</div>
+      <div class="tx-container__el wallet_currency">{{ item.wallet_currency }}</div>
+      <div class="tx-container__el wallet">{{ item.wallet }}</div>
+      <div class="tx-container__el date">{{ item.created_at }}</div>
+    </main>
+    <div v-if="isLoading" style="margin-left: 20%; color: #1b6d85; font-size: 30px">
+      loading...
+    </div>
+  </div>
+</section>
+

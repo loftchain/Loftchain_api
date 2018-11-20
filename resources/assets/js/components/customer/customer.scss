@@ -1,12 +1,12 @@
 @import "../../../sass/variables";
 
-.transaction {
+.customer {
   width: 80%;
   margin-left:20%;
   margin-bottom: 40px;
 
   .helpBar{
-    width: 1125px;
+    width: 765px;
     @extend %fsb;
   }
 
@@ -25,28 +25,16 @@
         width: 90px;
       }
 
-      &.currency{
-        width: 60px;
+      &.wallet_currency{
+        width: 110px;
       }
 
-      &.tx_id{
-        width: 320px;
-      }
-
-      &.from{
-        width: 320px;
-      }
-
-      &.amount{
-        width: 70px;
-      }
-
-      &.status{
-        width: 70px;
+      &.wallet{
+        width: 360px;
       }
 
       &.date{
-        width: 140px;
+        width: 150px;
       }
 
       &.tx-successful{
@@ -66,7 +54,7 @@
       @extend %fc;
       justify-content: flex-start;
       background: #1b6d85;
-      width: 1125px;
+      width: 765px;
 
       div{
         color: white;
@@ -75,7 +63,7 @@
     }
 
     main{
-      width: 1125px;
+      width: 765px;
       @extend %fc;
       justify-content: flex-start;
 

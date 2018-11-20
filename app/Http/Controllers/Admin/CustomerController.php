@@ -13,6 +13,11 @@ class CustomerController extends Controller
         return view('admin.customer');
     }
 
+    public function get()
+    {
+        return Customers::all();
+    }
+
     public function create()
     {
         $customer = Customers::all();
@@ -25,7 +30,13 @@ class CustomerController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
-//        Customers::create()
+        Customers::create([
+            'customer_id' => $request->customer_id,
+            'name' => $request->name,
+            'wallet_currency' => $request->currency,
+            'wallet' => $request->wallet
+        ]);
+
+        return redirect()->route('admin.customer');
     }
 }
