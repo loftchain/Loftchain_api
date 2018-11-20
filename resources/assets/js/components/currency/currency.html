@@ -1,0 +1,41 @@
+
+<section class="currency">
+  <div class="helpBar">
+    <div class="helpBar__buttons">
+      <button @click="prevPage">Previous</button>
+      <button @click="nextPage">Next</button>
+    </div>
+    <div class="helpBar__help-text">
+      <p v-model="currentPage">current page: {{ currentPage }}</p>
+      <p v-model="totalPages">total transactions: {{ totalPages }}</p>
+    </div>
+    <div class="helpBar__page-select">
+      <label for="pageQuantity">Number of elements on the page</label>
+      <select v-model="pageSize" name="pageQuantity" id="pageQuantity">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option :value="totalPages">all, {{ totalPages }}</option>
+      </select>
+    </div>
+  </div>
+  <div class="tx-container">
+    <header>
+      <div class="tx-container__el id" @click="sort('id')">id</div>
+      <div class="tx-container__el pair" @click="sort('pair')">pair</div>
+      <div class="tx-container__el price" @click="sort('price')">price</div>
+      <div class="tx-container__el timestamp" @click="sort('timestamp')">timestamp</div>
+    </header>
+    <main v-for="item in sortedItems" v-if="!isLoading">
+      <div class="tx-container__el id">{{ item.id }}</div>
+      <div class="tx-container__el pair">{{ item.pair }}</div>
+      <div class="tx-container__el price">{{ item.price }}</div>
+      <div class="tx-container__el timestamp">{{ item.timestamp }}</div>
+    </main>
+    <div v-if="isLoading" style="margin-left: 34%; color: #1b6d85; font-size: 30px">
+      loading...
+    </div>
+  </div>
+</section>
+

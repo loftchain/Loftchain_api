@@ -1,0 +1,78 @@
+@import "../../../sass/variables";
+
+.currency {
+  width: 100%;
+  margin-left:20%;
+  margin-bottom: 40px;
+
+  .helpBar{
+    width: 620px;
+    @extend %fsb;
+  }
+
+  .tx-container{
+    &__el{
+      text-align: center;
+      border: 1px solid #1b6d85;
+      color:$white;
+      @extend %fc;
+
+      &.id{
+        width: 55px;
+      }
+
+      &.pair{
+        width: 90px;
+      }
+
+      &.price{
+        width: 110px;
+      }
+
+      &.timestamp{
+        width: 110px;
+      }
+
+      &.tx-successful{
+        color: $status-green;
+      }
+
+      &.tx-failed{
+        color: $status-red;
+      }
+
+      &.not-in-white-list{
+        color: black;
+      }
+    }
+
+    header{
+      @extend %fc;
+      justify-content: flex-start;
+      background: #1b6d85;
+      width: 365px;
+
+      div{
+        color: white;
+        cursor: pointer;
+      }
+    }
+
+    main{
+      width: 1500px;
+      @extend %fc;
+      justify-content: flex-start;
+
+      div{
+        height: 40px;
+        color: $gray2;
+
+        &.from{
+          @extend %fcc;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+

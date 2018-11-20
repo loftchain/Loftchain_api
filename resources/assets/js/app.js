@@ -17,6 +17,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('transaction-table', require('./components/transaction/index'));
+Vue.component('currency-table', require('./components/currency/index'));
 
 const app = new Vue({
     el: '#app'

@@ -22,4 +22,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix => admin', 'as' => 'admin.', 'middleware' => ['auth']], function (){
    Route::get('transactions', 'Admin\TransactionController@index')->name('transaction');
    Route::get('transactions/get', 'Admin\TransactionController@get')->name('transaction.get');
+   Route::get('currencies', 'Admin\CurrencyController@index')->name('currency');
+   Route::get('currencies/get', 'Admin\CurrencyController@get')->name('currency.get');
 });
