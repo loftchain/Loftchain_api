@@ -10,13 +10,12 @@ use Illuminate\Support\Facades\Log;
 class CurService
 {
 
-
 	public function cur_get()
 	{
-		$client = new Client();
-		$res1 = $client->request('GET', 'https://api.cryptonator.com/api/ticker/btc-usd');
-		$res2 = $client->request('GET', 'https://api.cryptonator.com/api/ticker/eth-usd');
-		$res3 = $client->request('GET', 'https://api.cryptonator.com/api/ticker/btc-eth');
+		$client = new Client(['headers' => ['X-CoinAPI-Key' => 'FD93956C-E7F6-4564-A60B-A320FE7BE2F3']]);
+		$res1 = $client->request('GET', 'https://rest.coinapi.io/v1/exchangerate/BTC/USD');
+		$res2 = $client->request('GET', 'https://rest.coinapi.io/v1/exchangerate/ETH/USD');
+		$res3 = $client->request('GET', 'https://rest.coinapi.io/v1/exchangerate/BTC/ETH');
 
 		$body1 = json_decode($res1->getBody());
 		$body2 = json_decode($res2->getBody());
@@ -30,14 +29,15 @@ class CurService
 		$currencies = json_decode(json_encode($this->cur_get()), true);
 		foreach ($currencies as $cur) {
 			$db[] = [
-				'pair' => $cur['ticker']['base']. '/' . $cur['ticker']['target'],
-				'price' => $cur['ticker']['price'],
-				'timestamp' => $cur['timestamp']
+				'pair' => $cur['asset_id_base']. '/' . $cur['asset_id_quote'],
+				'price' => $cur['rate'],
+				'timestamp' => strtotime($cur['time'])
 			];
 		}
-	  for ($k = 0; $k < count($db); $k++) {
-			  Currencies::create($db[$k]);
-	  }
+
+		for ($k = 0; $k < count($db); $k++) {
+			Currencies::create($db[$k]);
+		}
 	}
 
 	public function cur_getCurFromDb()
