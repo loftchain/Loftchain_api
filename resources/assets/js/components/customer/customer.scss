@@ -6,7 +6,7 @@
   margin-bottom: 40px;
 
   .helpBar{
-    width: 765px;
+    width: 905px;
     @extend %fsb;
   }
 
@@ -23,6 +23,10 @@
 
       &.customer_id{
         width: 90px;
+      }
+
+      &.name{
+        width: 140px;
       }
 
       &.wallet_currency{
@@ -54,7 +58,7 @@
       @extend %fc;
       justify-content: flex-start;
       background: #1b6d85;
-      width: 765px;
+      width: 905px;
 
       div{
         color: white;
@@ -63,7 +67,7 @@
     }
 
     main{
-      width: 765px;
+      width: 905px;
       @extend %fc;
       justify-content: flex-start;
 

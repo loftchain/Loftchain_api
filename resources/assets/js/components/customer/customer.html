@@ -34,6 +34,7 @@
     <header>
       <div class="tx-container__el id" @click="sort('id')">id</div>
       <div class="tx-container__el customer_id" @click="sort('customer_id')">customer id</div>
+      <div class="tx-container__el name" @click="sort('name')">name</div>
       <div class="tx-container__el wallet_currency" @click="sort('wallet_currency')">currency</div>
       <div class="tx-container__el wallet" @click="sort('wallet')">wallet</div>
       <div class="tx-container__el date" @click="sort('created_at')">date</div>
@@ -41,6 +42,7 @@
     <main v-for="item in sortedItems" v-if="!isLoading">
       <div class="tx-container__el id">{{ item.id }}</div>
       <div class="tx-container__el customer_id">{{ item.customer_id }}</div>
+      <div class="tx-container__el name">{{ item.name }}</div>
       <div class="tx-container__el wallet_currency">{{ item.wallet_currency }}</div>
       <div class="tx-container__el wallet">{{ item.wallet }}</div>
       <div class="tx-container__el date">{{ item.created_at }}</div>
