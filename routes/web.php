@@ -24,4 +24,7 @@ Route::group(['prefix => admin', 'as' => 'admin.', 'middleware' => ['auth']], fu
    Route::get('transactions/get', 'Admin\TransactionController@get')->name('transaction.get');
    Route::get('currencies', 'Admin\CurrencyController@index')->name('currency');
    Route::get('currencies/get', 'Admin\CurrencyController@get')->name('currency.get');
+   Route::get('customer', 'Admin\CustomerController@index')->name('customer');
+   Route::get('customer/create', 'Admin\CustomerController@create')->name('customer.create');
+   Route::post('customer/create', 'Admin\CustomerController@store')->name('customer.store');
 });

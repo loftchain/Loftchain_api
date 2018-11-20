@@ -38,6 +38,7 @@
                     <ul class="nav navbar-nav">
                         &nbsp;<li><a href="{{ route('admin.transaction') }}">Transactions</a></li>
                          <li><a href="{{ route('admin.currency') }}">Currencies</a></li>
+                         <li><a href="{{ route('admin.customer') }}">Customers</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
