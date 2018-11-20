@@ -1,0 +1,59 @@
+
+<section class="transaction">
+  <div class="helpBar">
+    <div class="helpBar__buttons">
+      <button @click="prevPage">Previous</button>
+      <button @click="nextPage">Next</button>
+    </div>
+    <div class="helpBar__help-text">
+      <p v-model="currentPage">current page: {{ currentPage }}</p>
+      <p v-model="totalPages">total transactions: {{ totalPages }}</p>
+    </div>
+    <div class="helpBar__page-select">
+      <label for="pageQuantity">Number of elements on the page</label>
+      <select v-model="pageSize" name="pageQuantity" id="pageQuantity">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option :value="totalPages">all, {{ totalPages }}</option>
+      </select>
+    </div>
+    <div class="helpBar__currency-checkboxes">
+      <ul>
+        <li>
+          <input type="checkbox" v-model="checkedCurrency" @click="checkBoxClick" value="ETH" checked/>  ETH
+        </li>
+        <li>
+          <input type="checkbox" v-model="checkedCurrency" @click="checkBoxClick" value="BTC" checked/>  BTC
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="tx-container">
+    <header>
+      <div class="tx-container__el id" @click="sort('id')">user id</div>
+      <div class="tx-container__el customer_id" @click="sort('customer_id')">customer id</div>
+      <div class="tx-container__el currency" @click="sort('currency')">currency</div>
+      <div class="tx-container__el tx_id" @click="sort('txId')">tx id</div>
+      <div class="tx-container__el from" @click="sort('from')">from</div>
+      <div class="tx-container__el amount" @click="sort('amount')">amount</div>
+      <div class="tx-container__el status" @click="sort('status')">status</div>
+      <div class="tx-container__el date" @click="sort('date')">date</div>
+    </header>
+    <main v-for="item in sortedItems" v-if="!isLoading">
+      <div class="tx-container__el id">{{ item.id }}</div>
+      <div class="tx-container__el customer_id">{{ item.customer_id }}</div>
+      <div class="tx-container__el currency">{{ item.currency }}</div>
+      <div class="tx-container__el tx_id">{{ item.txId }}</div>
+      <div class="tx-container__el from">{{ item.from }}</div>
+      <div class="tx-container__el amount">{{ item.amount }}</div>
+      <div :class="{ 'tx-successful': item.status == 'true', 'tx-failed': item.status == 'false' }" class="tx-container__el status">{{ item.status }}</div>
+      <div class="tx-container__el date">{{ item.date }}</div>
+    </main>
+    <div v-if="isLoading" style="margin-left: 34%; color: #1b6d85; font-size: 30px">
+      loading...
+    </div>
+</div>
+</section>
+

@@ -36,3 +36,225 @@ $input-color-placeholder: lighten($text-color, 30%);
 
 // Panels
 $panel-default-heading-bg: #fff;
+
+$main1: #56CCF2;
+$main2: #458ED3;
+$main3: #1d9fa7;
+$main4: #1D52A7;
+$main5: #FFF;
+$main6: #FFF;
+$main7: #56CCF2;
+$main8: #2D3857;
+$x-dash-to:#F2F2F2;
+$almost-black:#333333;
+$white: #A3A3A3;
+$dark-blue: #103163;
+$gray1:#828282;
+$gray2: #4b4b4b;
+$gray3: #BDBDBD;
+$gray4: #E0E0E0;
+$gray5: #C4C4C4;
+$gray6: #adabab;
+$validationError: #ff443a;
+$status-red: #CF0032;
+$status-green: #27ae60;
+
+// breakpoints
+$desktop: 'only screen and (min-width: 1025px)';
+$superDesktop: 'only screen and (min-width: 1940px)';
+$largeDesktop: 'only screen and (min-width: 1920px)';
+$desktop1920: 'only screen and (width: 1920px)';
+$wideDesktop: 'only screen and (min-width: 1480px)';
+$normalDesktop: 'only screen and (min-width: 1025px) and (max-width: 1479px)';
+$narrowDesktop: 'only screen and (min-width: 1025px) and (max-width: 1279px)';
+$tablet: 'only screen and (min-width: 768px) and (max-width: 1024px)';
+$tabletLandscape: 'only screen and (min-width: 961px) and (max-width: 1024px)';
+$tabletPortrait: 'only screen and (min-width: 768px) and (max-width: 960px)';
+$mobile: '(max-width: 768px)';
+$mobile545: '(max-width: 545px)';
+$mobile480: '(max-width: 480px)';
+$mobile360: '(max-width: 360px)';
+$mobile320: '(max-width: 320px)';
+
+$noMobile: 'only screen and (min-width: 768px)';
+$noTablet: 'only screen and (min-width: 1025px), only screen and (max-width: 767px)';
+$noDesktop: '(max-width: 1024px)';
+
+@mixin x-dashboard-gradient($from, $to) {
+  background-image: -ms-linear-gradient(bottom, $from 0%, $to 100%);
+  background-image: -moz-linear-gradient(bottom, $from 0%, $to 100%);
+  background-image: -o-linear-gradient(bottom, $from 0%, $to 100%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, $from), color-stop(100, $to));
+  background-image: -webkit-linear-gradient(bottom, $from 0%, $to 100%);
+  background-image: linear-gradient(to top, $from 0%, $to 100%);
+}
+
+@mixin x-gradient($from, $to) {
+  background: $from;
+  background: -moz-linear-gradient(left, $from 0%, $to 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, $from), color-stop(100%, $to));
+  background: -webkit-linear-gradient(left, $from 0%, $to 100%);
+  background: -o-linear-gradient(left, $from 0%, $to 100%);
+  background: -ms-linear-gradient(left, $from 0%, $to 100%);
+  background: linear-gradient(to right, $from 0%, $to 100%);
+}
+
+@mixin x-gradient-color($from, $to) {
+  color: linear-gradient(to right, $from 0%, $to 100%);
+
+}
+
+@mixin internal-filling(){
+  @include x-gradient($main1, $main2);
+  height:calc(100% + 2px);
+  border-radius: 5px;
+  z-index:9;
+  position: absolute;
+  top: -1px; left: -1px;
+}
+
+@mixin internal-filling-number(){
+  position: absolute;
+  margin:10px auto;
+  left: 0; right:  0;
+  color:white;
+  text-align: center;
+  z-index:10;
+  font-size: 18px;
+  font-weight: 700;
+  text-shadow: 0px 0px 1px black;
+  letter-spacing: 1px;
+}
+
+@mixin main-gradient($from, $to){
+  background: $from; /* Old browsers */
+  background: -moz-linear-gradient(top, $from 0%, $to 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, $from 0%,$to 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, $from 0%,$to 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#041123', endColorstr='#0b2144',GradientType=0 ); /* IE6-9 */
+}
+
+
+%fc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%fcc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+%fsb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+%fsbc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+%title{
+  font-size: 16px;
+  font-weight: 700;
+  color: $main8;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+%register-loader{
+  .sk-folding-cube {
+    margin: 55% auto;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+  }
+
+  .sk-folding-cube .sk-cube {
+    float: left;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  .sk-folding-cube .sk-cube:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
+    animation: sk-foldCubeAngle 2.4s infinite linear both;
+    -webkit-transform-origin: 100% 100%;
+    -ms-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+  }
+  .sk-folding-cube .sk-cube2 {
+    -webkit-transform: scale(1.1) rotateZ(90deg);
+    transform: scale(1.1) rotateZ(90deg);
+  }
+  .sk-folding-cube .sk-cube3 {
+    -webkit-transform: scale(1.1) rotateZ(180deg);
+    transform: scale(1.1) rotateZ(180deg);
+  }
+  .sk-folding-cube .sk-cube4 {
+    -webkit-transform: scale(1.1) rotateZ(270deg);
+    transform: scale(1.1) rotateZ(270deg);
+  }
+  .sk-folding-cube .sk-cube2:before {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+  }
+  .sk-folding-cube .sk-cube3:before {
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+  }
+  .sk-folding-cube .sk-cube4:before {
+    -webkit-animation-delay: 0.9s;
+    animation-delay: 0.9s;
+  }
+  @-webkit-keyframes sk-foldCubeAngle {
+    0%, 10% {
+      -webkit-transform: perspective(140px) rotateX(-180deg);
+      transform: perspective(140px) rotateX(-180deg);
+      opacity: 0;
+    } 25%, 75% {
+        -webkit-transform: perspective(140px) rotateX(0deg);
+        transform: perspective(140px) rotateX(0deg);
+        opacity: 1;
+      } 90%, 100% {
+          -webkit-transform: perspective(140px) rotateY(180deg);
+          transform: perspective(140px) rotateY(180deg);
+          opacity: 0;
+        }
+  }
+
+  @keyframes sk-foldCubeAngle {
+    0%, 10% {
+      -webkit-transform: perspective(140px) rotateX(-180deg);
+      transform: perspective(140px) rotateX(-180deg);
+      opacity: 0;
+    } 25%, 75% {
+        -webkit-transform: perspective(140px) rotateX(0deg);
+        transform: perspective(140px) rotateX(0deg);
+        opacity: 1;
+      } 90%, 100% {
+          -webkit-transform: perspective(140px) rotateY(180deg);
+          transform: perspective(140px) rotateY(180deg);
+          opacity: 0;
+        }
+  }
+}

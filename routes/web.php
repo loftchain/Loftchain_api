@@ -18,3 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix => admin', 'as' => 'admin.', 'middleware' => ['auth']], function (){
+   Route::get('transactions', 'Admin\TransactionController@index')->name('transaction');
+   Route::get('transactions/get', 'Admin\TransactionController@get')->name('transaction.get');
+});
