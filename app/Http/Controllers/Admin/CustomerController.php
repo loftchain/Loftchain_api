@@ -40,7 +40,7 @@ class CustomerController extends Controller
                 if ($key === 'wallet_eth_currency') {
                     $this->storeCustomers($request, $request->wallet_eth_currency, $request->wallet_eth);
                 } elseif ($key === 'wallet_btc_currency') {
-                    $this->storeCustomers($request, $request->wallet_btc_currency, $request->wallet_btc, 1);
+                    $this->storeCustomers($request, $request->wallet_btc_currency, $request->wallet_btc);
                 }
             }
         }
@@ -54,10 +54,10 @@ class CustomerController extends Controller
         return Customers::all()->unique('name');
     }
 
-    public function storeCustomers(Request $request, $currency, $wallet, $customerId = 0)
+    public function storeCustomers(Request $request, $currency, $wallet)
     {
         Customers::create([
-            'customer_id' => $request->customer_id + $customerId,
+            'customer_id' => $request->customer_id,
             'name' => $request->name,
             'wallet_currency' => $currency,
             'wallet' => $wallet
