@@ -6,7 +6,7 @@
   margin-bottom: 40px;
 
   .helpBar{
-    width: 1125px;
+    width: 915px;
     @extend %fsb;
   }
 
@@ -29,8 +29,8 @@
         width: 60px;
       }
 
-      &.tx_id{
-        width: 320px;
+      &.info{
+        width: 110px;
       }
 
       &.from{
@@ -66,7 +66,7 @@
       @extend %fc;
       justify-content: flex-start;
       background: #1b6d85;
-      width: 1125px;
+      width: 915px;
 
       div{
         color: white;
@@ -75,7 +75,7 @@
     }
 
     main{
-      width: 1125px;
+      width: 915px;
       @extend %fc;
       justify-content: flex-start;
 

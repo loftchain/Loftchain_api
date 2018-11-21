@@ -43703,7 +43703,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.transaction .tx-container__el[data-v-022328da], .transaction .tx-container header[data-v-022328da], .transaction .tx-container main[data-v-022328da] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.transaction .tx-container main div.from[data-v-022328da] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.transaction .helpBar[data-v-022328da] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n@-webkit-keyframes sk-foldCubeAngle-data-v-022328da {\n0%, 10% {\n    -webkit-transform: perspective(140px) rotateX(-180deg);\n    transform: perspective(140px) rotateX(-180deg);\n    opacity: 0;\n}\n25%, 75% {\n    -webkit-transform: perspective(140px) rotateX(0deg);\n    transform: perspective(140px) rotateX(0deg);\n    opacity: 1;\n}\n90%, 100% {\n    -webkit-transform: perspective(140px) rotateY(180deg);\n    transform: perspective(140px) rotateY(180deg);\n    opacity: 0;\n}\n}\n@keyframes sk-foldCubeAngle-data-v-022328da {\n0%, 10% {\n    -webkit-transform: perspective(140px) rotateX(-180deg);\n    transform: perspective(140px) rotateX(-180deg);\n    opacity: 0;\n}\n25%, 75% {\n    -webkit-transform: perspective(140px) rotateX(0deg);\n    transform: perspective(140px) rotateX(0deg);\n    opacity: 1;\n}\n90%, 100% {\n    -webkit-transform: perspective(140px) rotateY(180deg);\n    transform: perspective(140px) rotateY(180deg);\n    opacity: 0;\n}\n}\n.transaction[data-v-022328da] {\n  width: 80%;\n  margin-left: 20%;\n  margin-bottom: 40px;\n}\n.transaction .helpBar[data-v-022328da] {\n    width: 1125px;\n}\n.transaction .tx-container__el[data-v-022328da] {\n    text-align: center;\n    border: 1px solid #1b6d85;\n    color: #A3A3A3;\n}\n.transaction .tx-container__el.id[data-v-022328da] {\n      width: 55px;\n}\n.transaction .tx-container__el.customer_id[data-v-022328da] {\n      width: 90px;\n}\n.transaction .tx-container__el.currency[data-v-022328da] {\n      width: 60px;\n}\n.transaction .tx-container__el.tx_id[data-v-022328da] {\n      width: 320px;\n}\n.transaction .tx-container__el.from[data-v-022328da] {\n      width: 320px;\n}\n.transaction .tx-container__el.amount[data-v-022328da] {\n      width: 70px;\n}\n.transaction .tx-container__el.status[data-v-022328da] {\n      width: 70px;\n}\n.transaction .tx-container__el.date[data-v-022328da] {\n      width: 140px;\n}\n.transaction .tx-container__el.tx-successful[data-v-022328da] {\n      color: #27ae60;\n}\n.transaction .tx-container__el.tx-failed[data-v-022328da] {\n      color: #CF0032;\n}\n.transaction .tx-container__el.not-in-white-list[data-v-022328da] {\n      color: black;\n}\n.transaction .tx-container header[data-v-022328da] {\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start;\n    background: #1b6d85;\n    width: 1125px;\n}\n.transaction .tx-container header div[data-v-022328da] {\n      color: white;\n      cursor: pointer;\n}\n.transaction .tx-container main[data-v-022328da] {\n    width: 1125px;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start;\n}\n.transaction .tx-container main div[data-v-022328da] {\n      height: 40px;\n      color: #4b4b4b;\n}\n.transaction .tx-container main div.from[data-v-022328da] {\n        font-size: 12px;\n}\n", ""]);
+exports.push([module.i, "\n.transaction .tx-container__el[data-v-022328da], .transaction .tx-container header[data-v-022328da], .transaction .tx-container main[data-v-022328da] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.transaction .tx-container main div.from[data-v-022328da] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.transaction .helpBar[data-v-022328da] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n@-webkit-keyframes sk-foldCubeAngle-data-v-022328da {\n0%, 10% {\n    -webkit-transform: perspective(140px) rotateX(-180deg);\n    transform: perspective(140px) rotateX(-180deg);\n    opacity: 0;\n}\n25%, 75% {\n    -webkit-transform: perspective(140px) rotateX(0deg);\n    transform: perspective(140px) rotateX(0deg);\n    opacity: 1;\n}\n90%, 100% {\n    -webkit-transform: perspective(140px) rotateY(180deg);\n    transform: perspective(140px) rotateY(180deg);\n    opacity: 0;\n}\n}\n@keyframes sk-foldCubeAngle-data-v-022328da {\n0%, 10% {\n    -webkit-transform: perspective(140px) rotateX(-180deg);\n    transform: perspective(140px) rotateX(-180deg);\n    opacity: 0;\n}\n25%, 75% {\n    -webkit-transform: perspective(140px) rotateX(0deg);\n    transform: perspective(140px) rotateX(0deg);\n    opacity: 1;\n}\n90%, 100% {\n    -webkit-transform: perspective(140px) rotateY(180deg);\n    transform: perspective(140px) rotateY(180deg);\n    opacity: 0;\n}\n}\n.transaction[data-v-022328da] {\n  width: 80%;\n  margin-left: 20%;\n  margin-bottom: 40px;\n}\n.transaction .helpBar[data-v-022328da] {\n    width: 915px;\n}\n.transaction .tx-container__el[data-v-022328da] {\n    text-align: center;\n    border: 1px solid #1b6d85;\n    color: #A3A3A3;\n}\n.transaction .tx-container__el.id[data-v-022328da] {\n      width: 55px;\n}\n.transaction .tx-container__el.customer_id[data-v-022328da] {\n      width: 90px;\n}\n.transaction .tx-container__el.currency[data-v-022328da] {\n      width: 60px;\n}\n.transaction .tx-container__el.info[data-v-022328da] {\n      width: 110px;\n}\n.transaction .tx-container__el.from[data-v-022328da] {\n      width: 320px;\n}\n.transaction .tx-container__el.amount[data-v-022328da] {\n      width: 70px;\n}\n.transaction .tx-container__el.status[data-v-022328da] {\n      width: 70px;\n}\n.transaction .tx-container__el.date[data-v-022328da] {\n      width: 140px;\n}\n.transaction .tx-container__el.tx-successful[data-v-022328da] {\n      color: #27ae60;\n}\n.transaction .tx-container__el.tx-failed[data-v-022328da] {\n      color: #CF0032;\n}\n.transaction .tx-container__el.not-in-white-list[data-v-022328da] {\n      color: black;\n}\n.transaction .tx-container header[data-v-022328da] {\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start;\n    background: #1b6d85;\n    width: 915px;\n}\n.transaction .tx-container header div[data-v-022328da] {\n      color: white;\n      cursor: pointer;\n}\n.transaction .tx-container main[data-v-022328da] {\n    width: 915px;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start;\n}\n.transaction .tx-container main div[data-v-022328da] {\n      height: 40px;\n      color: #4b4b4b;\n}\n.transaction .tx-container main div.from[data-v-022328da] {\n        font-size: 12px;\n}\n", ""]);
 
 // exports
 
@@ -44909,7 +44909,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("user id")]
+            [_vm._v("id")]
           ),
           _vm._v(" "),
           _c(
@@ -44941,14 +44941,14 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "tx-container__el tx_id",
+              staticClass: "tx-container__el info",
               on: {
                 click: function($event) {
                   _vm.sort("txId")
                 }
               }
             },
-            [_vm._v("tx id")]
+            [_vm._v("info")]
           ),
           _vm._v(" "),
           _c(
@@ -45019,8 +45019,27 @@ var render = function() {
                   _vm._v(_vm._s(item.currency))
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "tx-container__el tx_id" }, [
-                  _vm._v(_vm._s(item.txId))
+                _c("div", { staticClass: "tx-container__el info" }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href:
+                          item.currency === "ETH"
+                            ? "https://etherscan.io/tx/" + item.txId
+                            : "https://blockchain.info/tx/" + item.txId
+                      }
+                    },
+                    [
+                      _vm._v(
+                        _vm._s(
+                          item.currency === "ETH"
+                            ? "etherscan.io"
+                            : "blockchain.info"
+                        )
+                      )
+                    ]
+                  )
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "tx-container__el from" }, [

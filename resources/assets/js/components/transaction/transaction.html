@@ -39,10 +39,10 @@
   </div>
   <div class="tx-container">
     <header>
-      <div class="tx-container__el id" @click="sort('id')">user id</div>
+      <div class="tx-container__el id" @click="sort('id')">id</div>
       <div class="tx-container__el customer_id" @click="sort('customer_id')">customer id</div>
       <div class="tx-container__el currency" @click="sort('currency')">currency</div>
-      <div class="tx-container__el tx_id" @click="sort('txId')">tx id</div>
+      <div class="tx-container__el info" @click="sort('txId')">info</div>
       <div class="tx-container__el from" @click="sort('from')">from</div>
       <div class="tx-container__el amount" @click="sort('amount')">amount</div>
       <div class="tx-container__el status" @click="sort('status')">status</div>
@@ -52,7 +52,7 @@
       <div class="tx-container__el id">{{ item.id }}</div>
       <div class="tx-container__el customer_id">{{ item.customer_id }}</div>
       <div class="tx-container__el currency">{{ item.currency }}</div>
-      <div class="tx-container__el tx_id">{{ item.txId }}</div>
+      <div class="tx-container__el info"><a :href="item.currency === 'ETH' ? 'https://etherscan.io/tx/' + item.txId : 'https://blockchain.info/tx/' + item.txId">{{ item.currency === 'ETH' ? 'etherscan.io' : 'blockchain.info' }}</a></div>
       <div class="tx-container__el from">{{ item.from }}</div>
       <div class="tx-container__el amount">{{ item.amount.toFixed(2) }}</div>
       <div :class="{ 'tx-successful': item.status == 'true', 'tx-failed': item.status == 'false' }" class="tx-container__el status">{{ item.status }}</div>
