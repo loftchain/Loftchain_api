@@ -43818,7 +43818,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                     _this2.isLoading = false;
                                     var data = res.data;
 
-                                    console.log(data);
                                     _this2.totalPages = data.length;
                                     _this2.transactions = data;
                                 });
@@ -43849,7 +43848,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('customer/get/name').then(function (res) {
                                     var data = res.data;
 
-                                    console.log(data);
                                     _this3.customers = data;
                                 });
 
@@ -45030,7 +45028,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "tx-container__el amount" }, [
-                  _vm._v(_vm._s(item.amount))
+                  _vm._v(_vm._s(item.amount.toFixed(2)))
                 ]),
                 _vm._v(" "),
                 _c(

@@ -54,7 +54,7 @@
       <div class="tx-container__el currency">{{ item.currency }}</div>
       <div class="tx-container__el tx_id">{{ item.txId }}</div>
       <div class="tx-container__el from">{{ item.from }}</div>
-      <div class="tx-container__el amount">{{ item.amount }}</div>
+      <div class="tx-container__el amount">{{ item.amount.toFixed(2) }}</div>
       <div :class="{ 'tx-successful': item.status == 'true', 'tx-failed': item.status == 'false' }" class="tx-container__el status">{{ item.status }}</div>
       <div class="tx-container__el date">{{ item.date }}</div>
     </main>

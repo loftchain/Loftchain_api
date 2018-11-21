@@ -47,7 +47,6 @@ export default {
                 .then(res => {
                     this.isLoading = false;
                     const {data} = res;
-                    console.log(data);
                     this.totalPages = data.length;
                     this.transactions = data;
                 })
@@ -57,7 +56,6 @@ export default {
             await axios.get('customer/get/name')
                 .then(res => {
                     const {data} = res;
-                    console.log(data);
                     this.customers = data;
                 })
         },
