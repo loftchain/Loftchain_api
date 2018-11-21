@@ -7,6 +7,8 @@ export default {
     data() {
         return {
             transactions: null,
+            customers: null,
+            selectCustomer: null,
             currentSort: 'date',
             currentSortDir: 'desc',
             pageSize: 10,
@@ -17,26 +19,27 @@ export default {
         }
     },
     computed: {
-        sortedItems:function() {
-            if(this.transactions !== null){
-                return this.transactions.sort((a,b) => {
+        sortedItems: function () {
+            if (this.transactions !== null) {
+                return this.transactions.sort((a, b) => {
                     let modifier = 1;
-                    if(this.currentSortDir === 'desc') modifier = -1;
-                    if(a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
-                    if(a[this.currentSort] > b[this.currentSort]) return 1 * modifier;
+                    if (this.currentSortDir === 'desc') modifier = -1;
+                    if (a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
+                    if (a[this.currentSort] > b[this.currentSort]) return 1 * modifier;
                     return 0;
                 }).filter((row, index) => {
-                    let start = (this.currentPage-1)*this.pageSize;
-                    let end = this.currentPage*this.pageSize;
-                    if(index >= start && index < end) return true;
+                    let start = (this.currentPage - 1) * this.pageSize;
+                    let end = this.currentPage * this.pageSize;
+                    if (index >= start && index < end) return true;
                 }).filter((i) =>
                     this.checkedCurrency.includes(i.currency)
-                );
+                ).filter(i => this.selectCustomer !== null ? this.selectCustomer.includes(i.customer.name) : true);
             }
         },
     },
     mounted() {
-        this.getTransactions()
+        this.getTransactions();
+        this.getCustomers();
     },
     methods: {
         async getTransactions() {
@@ -44,8 +47,18 @@ export default {
                 .then(res => {
                     this.isLoading = false;
                     const {data} = res;
+                    console.log(data);
                     this.totalPages = data.length;
                     this.transactions = data;
+                })
+        },
+
+        async getCustomers() {
+            await axios.get('customer/get/name')
+                .then(res => {
+                    const {data} = res;
+                    console.log(data);
+                    this.customers = data;
                 })
         },
 

@@ -18,4 +18,9 @@ class Transactions extends Model
     'date',
     'status',
   ];
+
+  public function customer()
+  {
+      return $this->belongsTo(Customers::class, 'customer_id', 'customer_id');
+  }
 }

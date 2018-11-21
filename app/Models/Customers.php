@@ -15,4 +15,9 @@ class Customers extends Model
         'wallet_currency',
         'wallet',
     ];
+
+    public function transactions()
+    {
+        return $this->hasMany(Transactions::class, 'customer_id', 'customer_id');
+    }
 }

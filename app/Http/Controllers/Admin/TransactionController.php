@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Customers;
 use App\Models\Transactions;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,6 +16,6 @@ class TransactionController extends Controller
 
     public function get()
     {
-        return Transactions::all();
+        return Transactions::with('customer')->get();
     }
 }

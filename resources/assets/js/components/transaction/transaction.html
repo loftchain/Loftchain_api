@@ -19,6 +19,13 @@
         <option :value="totalPages">all, {{ totalPages }}</option>
       </select>
     </div>
+    <div class="helpBar__customer-select">
+      <label for="pageQuantity">Customer</label>
+      <select v-model="selectCustomer">
+        <option :value="null" selected>Not sorted</option>
+        <option v-for="customer in customers" :value="customer.name">{{ customer.name }}</option>
+      </select>
+    </div>
     <div class="helpBar__currency-checkboxes">
       <ul>
         <li>

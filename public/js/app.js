@@ -43764,6 +43764,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     data: function data() {
         return {
             transactions: null,
+            customers: null,
+            selectCustomer: null,
             currentSort: 'date',
             currentSortDir: 'desc',
             pageSize: 10,
@@ -43791,12 +43793,15 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                     if (index >= start && index < end) return true;
                 }).filter(function (i) {
                     return _this.checkedCurrency.includes(i.currency);
+                }).filter(function (i) {
+                    return _this.selectCustomer !== null ? _this.selectCustomer.includes(i.customer.name) : true;
                 });
             }
         }
     },
     mounted: function mounted() {
         this.getTransactions();
+        this.getCustomers();
     },
 
     methods: {
@@ -43813,6 +43818,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                     _this2.isLoading = false;
                                     var data = res.data;
 
+                                    console.log(data);
                                     _this2.totalPages = data.length;
                                     _this2.transactions = data;
                                 });
@@ -43830,6 +43836,36 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             }
 
             return getTransactions;
+        }(),
+        getCustomers: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+                var _this3 = this;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _context2.next = 2;
+                                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('customer/get/name').then(function (res) {
+                                    var data = res.data;
+
+                                    console.log(data);
+                                    _this3.customers = data;
+                                });
+
+                            case 2:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function getCustomers() {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getCustomers;
         }(),
 
 
@@ -44721,6 +44757,53 @@ var render = function() {
               _vm._v("all, " + _vm._s(_vm.totalPages))
             ])
           ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "helpBar__customer-select" }, [
+        _c("label", { attrs: { for: "pageQuantity" } }, [_vm._v("Customer")]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.selectCustomer,
+                expression: "selectCustomer"
+              }
+            ],
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.selectCustomer = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          [
+            _c(
+              "option",
+              { attrs: { selected: "" }, domProps: { value: null } },
+              [_vm._v("Not sorted")]
+            ),
+            _vm._v(" "),
+            _vm._l(_vm.customers, function(customer) {
+              return _c("option", { domProps: { value: customer.name } }, [
+                _vm._v(_vm._s(customer.name))
+              ])
+            })
+          ],
+          2
         )
       ]),
       _vm._v(" "),

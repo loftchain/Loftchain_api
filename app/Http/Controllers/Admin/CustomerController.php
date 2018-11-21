@@ -39,4 +39,10 @@ class CustomerController extends Controller
 
         return redirect()->route('admin.customer');
     }
+
+
+    public function getCustomerName()
+    {
+        return Customers::all()->unique('name');
+    }
 }
