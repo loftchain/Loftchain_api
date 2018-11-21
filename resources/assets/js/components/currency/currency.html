@@ -30,7 +30,7 @@
     <main v-for="item in sortedItems" v-if="!isLoading">
       <div class="tx-container__el id">{{ item.id }}</div>
       <div class="tx-container__el pair">{{ item.pair }}</div>
-      <div class="tx-container__el price">{{ item.price }}</div>
+      <div class="tx-container__el price">{{ Number(item.price).toFixed(2) }}</div>
       <div class="tx-container__el timestamp">{{ item.timestamp }}</div>
     </main>
     <div v-if="isLoading" style="margin-left: 8%; color: #1b6d85; font-size: 30px">

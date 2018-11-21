@@ -7,7 +7,7 @@ export default {
     data() {
         return {
             currencies: null,
-            currentSort: 'date',
+            currentSort: 'id',
             currentSortDir: 'desc',
             pageSize: 10,
             currentPage: 1,

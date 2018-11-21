@@ -45192,7 +45192,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     data: function data() {
         return {
             currencies: null,
-            currentSort: 'date',
+            currentSort: 'id',
             currentSortDir: 'desc',
             pageSize: 10,
             currentPage: 1,
@@ -45441,7 +45441,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "tx-container__el price" }, [
-                  _vm._v(_vm._s(item.price))
+                  _vm._v(_vm._s(Number(item.price).toFixed(2)))
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "tx-container__el timestamp" }, [
