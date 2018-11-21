@@ -19,15 +19,16 @@
                             <input type="text" class="form-control" name="customer_id" value="{{ $customerId }}" readonly>
                         </div>
                         <div class="form-group">
-                            <label>Currency</label>
-                            <select class="form-control" name="currency">
-                                <option value="ETH">ETH</option>
-                                <option value="BTC">BTC</option>
-                            </select>
+                            <label>Wallet ETH</label>
+                            <input type="text" class="form-control" name="wallet_eth_currency" value="ETH" readonly>
+                            </p>
+                            <input type="text" class="form-control" name="wallet_eth" placeholder="Enter ETH wallet">
                         </div>
                         <div class="form-group">
-                            <label>Wallet</label>
-                            <input type="text" class="form-control" name="wallet" placeholder="Enter wallet">
+                            <label>Wallet BTC</label>
+                            <input type="text" class="form-control" name="wallet_btc_currency" value="BTC" readonly>
+                            </p>
+                            <input type="text" class="form-control" name="wallet_btc" placeholder="Enter BTC wallet">
                         </div>
                         <button type="submit" class="btn btn-primary">Create</button>
                     </form>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\Register;
 use App\Models\Customers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -30,12 +31,19 @@ class CustomerController extends Controller
 
     public function store(Request $request)
     {
-        Customers::create([
-            'customer_id' => $request->customer_id,
-            'name' => $request->name,
-            'wallet_currency' => $request->currency,
-            'wallet' => $request->wallet
-        ]);
+        if ($request->wallet_eth && !$request->wallet_btc) {
+            $this->storeCustomers($request, $request->wallet_eth_currency, $request->wallet_eth);
+        } elseif ($request->wallet_btc && !$request->wallet_eth) {
+            $this->storeCustomers($request, $request->wallet_btc_currency, $request->wallet_btc);
+        } else {
+            foreach ($request->all() as $key => $item) {
+                if ($key === 'wallet_eth_currency') {
+                    $this->storeCustomers($request, $request->wallet_eth_currency, $request->wallet_eth);
+                } elseif ($key === 'wallet_btc_currency') {
+                    $this->storeCustomers($request, $request->wallet_btc_currency, $request->wallet_btc, 1);
+                }
+            }
+        }
 
         return redirect()->route('admin.customer');
     }
@@ -44,5 +52,15 @@ class CustomerController extends Controller
     public function getCustomerName()
     {
         return Customers::all()->unique('name');
+    }
+
+    public function storeCustomers(Request $request, $currency, $wallet, $customerId = 0)
+    {
+        Customers::create([
+            'customer_id' => $request->customer_id + $customerId,
+            'name' => $request->name,
+            'wallet_currency' => $currency,
+            'wallet' => $wallet
+        ]);
     }
 }
